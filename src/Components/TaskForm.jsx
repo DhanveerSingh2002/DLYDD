@@ -24,7 +24,7 @@ const TaskForm = () => {
   }, [])
 
   const saveThem= (taskList) => {
-    let data = JSON.stringify(" "+taskList+" ");
+    let data = JSON.stringify(taskList);
     localStorage.setItem("taskList", data);
   }
 
@@ -48,21 +48,21 @@ const TaskForm = () => {
 
   const handleEdit = (index) => 
   {
-    setTask(taskList.find((_, i) => i === index));
+    setTask(taskList.filter((_, i) => i === index));
     if(task.length>0)
     {
       document.querySelector('.inputBar').value = task;
     }
     document.querySelector('.inputBar').focus();
-    
-    saveThem(taskList);
 
     handleDelete(index);
+
+    saveThem(taskList);
   };
 
   return (
     <>
-    
+
         <div id="welcome">
             <h2>Just Do It !!!</h2>
         </div>
@@ -74,9 +74,9 @@ const TaskForm = () => {
 
             </div>
           </div>
-            {taskList.map((taskItem, index) => {return (
+            {taskList.map((taskItem, index) => (
               <Task key={index} task={taskItem} index={index} onDelete={handleDelete} onEdit={handleEdit}/>
-            )})}
+            ))}
         </div>
     </>
   )
