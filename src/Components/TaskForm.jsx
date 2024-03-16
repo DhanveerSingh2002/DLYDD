@@ -24,7 +24,7 @@ const TaskForm = () => {
   }, [])
 
   const saveThem= (taskList) => {
-    let data = JSON.stringify(taskList);
+    let data = JSON.stringify(" "+taskList+" ");
     localStorage.setItem("taskList", data);
   }
 
@@ -54,10 +54,10 @@ const TaskForm = () => {
       document.querySelector('.inputBar').value = task;
     }
     document.querySelector('.inputBar').focus();
-
-    handleDelete(index);
     
     saveThem(taskList);
+
+    handleDelete(index);
   };
 
   return (
