@@ -48,7 +48,7 @@ const TaskForm = () => {
 
   const handleEdit = (index) => 
   {
-    setTask(taskList.filter((_, i) => i === index));
+    setTask(taskList.find((_, i) => i === index));
     if(task.length>0)
     {
       document.querySelector('.inputBar').value = task;
