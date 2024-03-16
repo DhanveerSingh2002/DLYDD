@@ -74,9 +74,9 @@ const TaskForm = () => {
 
             </div>
           </div>
-            {taskList.map((taskItem, index) => (
+            {taskList.map((taskItem, index) => {return (
               <Task key={index} task={taskItem} index={index} onDelete={handleDelete} onEdit={handleEdit}/>
-            ))}
+            )})}
         </div>
     </>
   )
