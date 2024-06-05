@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 
 const Task = (props) => {
-    const[checked, setChecked] = useState(false);
 
+    const[checked, setChecked] = useState(props.task.status);
+    
     const handleCheck = () => {
         setChecked(!checked);
+        props.onCheck(props.index);
     }
 
     const handleDelete = () => 
@@ -24,10 +26,10 @@ const Task = (props) => {
         <div className='innerTask border' key={props.index}>
             <div className='taskName'>
                 <div className='done'>
-                    <input type="checkbox" onChange={handleCheck} name="" id="" />
+                    <input type="checkbox" onChange={handleCheck} name="" id="" checked={checked} />
                 </div>
                 <div className={!checked?"font":"strike-through blur"}>
-                    {props.task}
+                    {props.task.value}
                 </div>
             </div>
             <div className='buttons'>
