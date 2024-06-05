@@ -1,5 +1,5 @@
 body{
-  background-color: #bcbcbc;
+  background-color: #363636;
 }
 #root {
   margin: 0 auto;
@@ -108,6 +108,7 @@ body{
   font-size: 1.4em;
   flex-direction: row;
   text-align: left;
+  color:white;
 }
 
 .hide{
